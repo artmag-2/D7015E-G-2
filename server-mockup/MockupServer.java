@@ -52,10 +52,12 @@ public class MockupServer {
                    byte[] size = new byte[4];
                    input.read(size,0,4);
                    
-                   //Get the size of the row data that we need to read.
-                               
+                   //Get the size of the row data that we need to read.            
                    ByteBuffer wrapped = ByteBuffer.wrap(size); //Big-endian by default
                    int rawDataSize = wrapped.getInt(); 
+                   
+                   byte[] rawData = new byte[rawDataSize];
+                   input.read(rawData,0, rawDataSize);
                    
                 }
                 
